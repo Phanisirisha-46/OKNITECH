@@ -14,13 +14,23 @@ body {
   z-index: 0;
 }
 
+
 .background img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   filter: blur(8px);
+  display: block;
 }
+
+@media (max-width: 768px) {
+  .background img {
+    object-position: center center;
+    filter: blur(5px); /* Less aggressive blur for clarity */
+  }
+}
+
 
 /* Header */
 .header {
@@ -28,14 +38,14 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 64px;
-  padding: 12px 40px;
+  padding: 30px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   backdrop-filter: blur(40px);
-  background: rgba(0, 0, 0, 0.2); /* Slight tint for better visibility */
+  background: rgba(0, 0, 0, 0.1);
   z-index: 3;
+  flex-wrap: wrap;
 }
 
 /* Header layout */
@@ -46,6 +56,7 @@ body {
   align-items: center;
 }
 
+
 .header-left {
   flex: 1;
 }
@@ -53,13 +64,55 @@ body {
 .header-center {
   flex: 2;
   justify-content: center;
-  gap: 40px;
+  gap: 35px;
+  flex-wrap: wrap;
 }
 
 .header-right {
   flex: 1;
-  justify-content: flex-end;
-  gap: 12px;
+  justify-content: center; 
+  gap: 5px;
+}
+
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Default: hide menu on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+  .header-center {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none; /* hidden by default */
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .header-center.show {
+    display: flex; /* shown when toggled */
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /* Brand Logo */
@@ -100,6 +153,89 @@ body {
   border-radius: 50%;
 }
 
+/* Responsive Header */
+@media (max-width: 1024px) {
+  .header {
+    padding: 16px 24px;
+  }
+
+  .header-center {
+    gap: 24px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-center {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .nav-link img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .brand-logo {
+    height: 24px;
+  }
+
+  .search-icon,
+  .avatar-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .header-center {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header {
+    padding: 12px 16px;
+  }
+
+  .header-right {
+    gap: 16px;
+  }
+}
+
+
+
+
+
+
+
+
 /* Main Content */
 .content {
   position: absolute;
@@ -109,6 +245,12 @@ body {
   z-index: 2;
   text-align: center;
 }
+
+
+
+
+
+
 
 /* Footer */
 .footer {
@@ -177,6 +319,12 @@ body {
 .footer-right img:hover {
   opacity: 0.7;
 }
+
+
+
+
+
+
 
 /* wait for it */
 .latest-news-section {
@@ -310,4 +458,87 @@ body {
 
 .page-link:hover {
   color: #b78bec;
+}
+
+/* RESPONSIVE STYLES */
+
+/* Tablets and smaller (≤ 992px) */
+@media (max-width: 992px) {
+  .news-card {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+  }
+
+.news-image {
+  width: 100%;
+  max-width: 500px;     /* Decrease this value to make it smaller */
+  height: auto;         
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;        /* Center horizontally */
+}
+
+  .news-text-content,
+  .news-content {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .news-description {
+    padding-right: 0;
+  }
+
+  .read-more {
+    margin: 10px auto;
+  }
+
+  .news-header {
+    justify-content: center;
+  }
+
+  .news-header .news-icon {
+    margin-left: 0;
+    width: 200px;
+  }
+
+  .news-list {
+    margin-left: 0;
+  }
+}
+
+/* Mobile (≤ 576px) */
+@media (max-width: 576px) {
+  .news-title {
+    font-size: 22px;
+  }
+
+  .news-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .news-meta {
+    font-size: 12px;
+  }
+
+  .read-more {
+    width: 100%;
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .page-link {
+    font-size: 14px;
+  }
+
+  .pagination img {
+    height: 12px;
+  }
+
+  .latest-news-section {
+    padding: 20px;
+  }
 }
