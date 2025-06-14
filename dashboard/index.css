@@ -510,7 +510,6 @@
 .custom-card {
   position: relative;
   border-radius: 40px;
-  padding: 20px;
   background: radial-gradient(
     255.13% 113.60% at 9% 32%,
     rgb(255, 255, 255),
