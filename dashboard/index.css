@@ -439,7 +439,207 @@
   text-decoration: none;
 }
 
-
-
-
 /*3 cards end*/
+
+/*referral start*/
+.referral-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.small-line {
+ flex: 0.1; 
+  height: 1px;
+  background: rgba(47, 47, 162, 0.4);
+}
+
+.big-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(47, 47, 162, 0.4);
+}
+
+.referrals {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  color: rgb(47, 47, 162);
+  font-size: 30px;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: "Nunito", sans-serif;
+
+}
+
+.referrals img {
+  width: 30px;
+  height: 28px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .referrals {
+    font-size: 28px;
+  }
+
+  .referrals img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .referrals {
+    font-size: 22px;
+  }
+
+  .referrals img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
+/*referral end*/
+
+/*referral-card start*/
+.custom-card {
+  position: relative;
+  border-radius: 40px;
+  padding: 20px;
+  background: radial-gradient(
+    255.13% 113.60% at 9% 32%,
+    rgb(255, 255, 255),
+    rgb(173, 173, 255) 100%
+  );
+}
+
+/* Fake dashed border using :before */
+.custom-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  padding: 3px;
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4) 15px,
+      transparent 15px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4) 15px,
+      transparent 15px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4) 15px,
+      transparent 15px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4) 15px,
+      transparent 15px,
+      transparent 30px
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 3px, 3px 100%, 100% 3px, 3px 100%;
+  background-position: top left, top right, bottom right, bottom left;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .referral-code {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 50px;
+      letter-spacing: -0.02em;
+      color: rgba(1, 14, 41, 0.75);
+    }
+
+    .referral-count {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 31px;
+      letter-spacing: -0.02em;
+      color: rgb(47, 47, 162);
+      margin: 15px 0;
+    }
+
+    .referral-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+      color: rgb(47, 47, 162);
+      margin: 15px 0;
+      text-decoration: none;
+    }
+
+    .referral-link:hover {
+      text-decoration: underline;
+    }
+
+    .right-side img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .custom-card {
+        text-align: center;
+      }
+
+      .left-side {
+        align-items: center;
+      }
+    }
+/*referral-card end*/
+
+/*footer* start*/
+
+.footer {
+  background: url('footer.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.footer-link {
+  text-decoration: none;
+  margin: 0 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+}
+
+.footer-copy {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+}
+
+/*footer end*/
